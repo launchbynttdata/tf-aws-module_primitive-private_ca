@@ -86,8 +86,7 @@ func setupAndTestCA(t *testing.T, dir string) {
 
 	ca := result.CertificateAuthority
 
-	expectedType, err := terraform.GetVariableAsStringFromVarFileE(t, dir+testVarFileName, "type")
-	assert.NoError(t, err)
+	expectedType := "ROOT"
 	actualType := string(ca.Type)
 	assert.Equal(t, expectedType, actualType, "CA Type does not match")
 

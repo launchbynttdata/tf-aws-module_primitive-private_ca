@@ -10,10 +10,36 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-variable "naming_prefix" {
-  description = "Prefix for the provisioned resources."
+variable "logical_product_family" {
   type        = string
-  default     = "demo-pca"
+  description = <<EOF
+    (Required) Name of the product family for which the resource is created.
+    Example: org_name, department_name.
+  EOF
+  nullable    = false
+
+  validation {
+    condition     = can(regex("^[_\\-A-Za-z0-9]+$", var.logical_product_family))
+    error_message = "The variable must contain letters, numbers, -, _, and .."
+  }
+
+  default = "launch"
+}
+
+variable "logical_product_service" {
+  type        = string
+  description = <<EOF
+    (Required) Name of the product service for which the resource is created.
+    For example, backend, frontend, middleware etc.
+  EOF
+  nullable    = false
+
+  validation {
+    condition     = can(regex("^[_\\-A-Za-z0-9]+$", var.logical_product_service))
+    error_message = "The variable must contain letters, numbers, -, _, and .."
+  }
+
+  default = "ecs"
 }
 
 variable "environment" {
@@ -24,26 +50,31 @@ variable "environment" {
 
 variable "environment_number" {
   description = "The environment count for the respective environment. Defaults to 000. Increments in value of 1"
+  type        = string
   default     = "000"
 }
 
 variable "resource_number" {
   description = "The resource count for the respective resource. Defaults to 000. Increments in value of 1"
+  type        = string
   default     = "000"
 }
 
 variable "region" {
   description = "AWS Region in which the infra needs to be provisioned"
+  type        = string
   default     = "us-east-2"
 }
 
 variable "key_algorithm" {
   description = "Type of public key algorithm to use for this CA"
+  type        = string
   default     = "RSA_4096"
 }
 
 variable "signing_algorithm" {
   description = "Name of the algorithm your private CA uses to sign certificate requests."
+  type        = string
   default     = "SHA512WITHRSA"
 }
 
@@ -66,36 +97,6 @@ variable "subject" {
     state               = "Texas"
     organizational_unit = "DSO"
   }
-}
-
-variable "permanent_deletion_time_in_days" {
-  description = <<EOF
-    Number of days to make a CA restorable after it has been deleted,
-    must be between 7 to 30 days, with default to 30 days.
-  EOF
-  type        = number
-  default     = 7
-}
-
-variable "usage_mode" {
-  description = <<EOF
-    Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism,
-    or short-lived certificates that may optionally omit revocation because they expire quickly.
-  EOF
-  type        = string
-  default     = "GENERAL_PURPOSE"
-}
-
-variable "enabled" {
-  description = "Whether the certificate authority is enabled or disabled."
-  type        = bool
-  default     = true
-}
-
-variable "type" {
-  description = "Type of the certificate authority. Defaults to SUBORDINATE. Valid values: ROOT and SUBORDINATE."
-  type        = string
-  default     = "ROOT"
 }
 
 variable "ca_certificate_validity" {

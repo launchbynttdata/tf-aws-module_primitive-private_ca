@@ -13,11 +13,12 @@
 module "pca" {
   source = "../.."
 
-  naming_prefix      = var.naming_prefix
-  region             = var.region
-  environment        = var.environment
-  environment_number = var.environment_number
-  resource_number    = var.resource_number
+  logical_product_family  = var.logical_product_family
+  logical_product_service = var.logical_product_service
+  region                  = var.region
+  environment             = var.environment
+  environment_number      = var.environment_number
+  resource_number         = var.resource_number
 
   key_algorithm           = var.key_algorithm
   signing_algorithm       = var.signing_algorithm

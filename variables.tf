@@ -10,12 +10,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-variable "naming_prefix" {
-  description = "Prefix for the provisioned resources."
-  type        = string
-  default     = "demo-app"
-}
-
 variable "logical_product_family" {
   type        = string
   description = <<EOF
@@ -56,26 +50,31 @@ variable "environment" {
 
 variable "environment_number" {
   description = "The environment count for the respective environment. Defaults to 000. Increments in value of 1"
+  type        = string
   default     = "000"
 }
 
 variable "resource_number" {
   description = "The resource count for the respective resource. Defaults to 000. Increments in value of 1"
+  type        = string
   default     = "000"
 }
 
 variable "region" {
   description = "AWS Region in which the infra needs to be provisioned"
+  type        = string
   default     = "us-east-2"
 }
 
 variable "key_algorithm" {
   description = "Type of public key algorithm to use for this CA"
+  type        = string
   default     = "RSA_4096"
 }
 
 variable "signing_algorithm" {
   description = "Name of the algorithm your private CA uses to sign certificate requests."
+  type        = string
   default     = "SHA512WITHRSA"
 }
 

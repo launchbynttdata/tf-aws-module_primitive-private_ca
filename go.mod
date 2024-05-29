@@ -1,4 +1,4 @@
-module github.com/launchbynttdata/tf-aws-module_primitive-private_ca.git
+module github.com/launchbynttdata/tf-aws-module_primitive-private_ca
 
 go 1.21
 
@@ -7,6 +7,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/config v1.27.16
 	github.com/aws/aws-sdk-go-v2/service/acmpca v1.30.1
 	github.com/gruntwork-io/terratest v0.46.15
+	github.com/launchbynttdata/lcaf-component-terratest v1.0.4
 	github.com/stretchr/testify v1.9.0
 )
 

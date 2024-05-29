@@ -135,7 +135,7 @@ Currently, the `encrypt at transit` is not supported in terraform. There is an o
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.67.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.51.1 |
 
 ## Modules
 
@@ -180,4 +180,8 @@ Currently, the `encrypt at transit` is not supported in terraform. There is an o
 | <a name="output_resource_name_tag"></a> [resource\_name\_tag](#output\_resource\_name\_tag) | n/a |
 | <a name="output_private_ca_arn"></a> [private\_ca\_arn](#output\_private\_ca\_arn) | ARN of Private CA |
 | <a name="output_private_ca_id"></a> [private\_ca\_id](#output\_private\_ca\_id) | ID of the private CA |
+| <a name="output_private_ca_type"></a> [private\_ca\_type](#output\_private\_ca\_type) | Type of the private CA |
+| <a name="output_private_ca_usage_mode"></a> [private\_ca\_usage\_mode](#output\_private\_ca\_usage\_mode) | Usage mode of the private CA |
+| <a name="output_private_ca_key_algorithm"></a> [private\_ca\_key\_algorithm](#output\_private\_ca\_key\_algorithm) | Configuration of the private CA |
+| <a name="output_private_ca_signing_algorithm"></a> [private\_ca\_signing\_algorithm](#output\_private\_ca\_signing\_algorithm) | Configuration of the private CA |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

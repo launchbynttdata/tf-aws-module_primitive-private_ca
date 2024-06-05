@@ -23,3 +23,23 @@ output "private_ca_id" {
 output "resource_name_tag" {
   value = module.pca.resource_name_tag
 }
+
+output "private_ca_type" {
+  description = "Type of the private CA"
+  value       = module.pca.private_ca_type
+}
+
+output "private_ca_usage_mode" {
+  description = "Usage mode of the private CA"
+  value       = module.pca.private_ca_usage_mode
+}
+
+output "private_ca_key_algorithm" {
+  description = "Configuration of the private CA"
+  value       = module.pca.private_ca_key_algorithm
+}
+
+output "private_ca_signing_algorithm" {
+  description = "Configuration of the private CA"
+  value       = module.pca.private_ca_signing_algorithm
+}

@@ -129,13 +129,13 @@ Currently, the `encrypt at transit` is not supported in terraform. There is an o
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.0, <= 1.5.5 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.28.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.67.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.51.1 |
 
 ## Modules
 
@@ -157,7 +157,6 @@ Currently, the `encrypt at transit` is not supported in terraform. There is an o
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_naming_prefix"></a> [naming\_prefix](#input\_naming\_prefix) | Prefix for the provisioned resources. | `string` | `"demo-app"` | no |
 | <a name="input_logical_product_family"></a> [logical\_product\_family](#input\_logical\_product\_family) | (Required) Name of the product family for which the resource is created.<br>    Example: org\_name, department\_name. | `string` | `"launch"` | no |
 | <a name="input_logical_product_service"></a> [logical\_product\_service](#input\_logical\_product\_service) | (Required) Name of the product service for which the resource is created.<br>    For example, backend, frontend, middleware etc. | `string` | `"ecs"` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | Environment in which the resource should be provisioned like dev, qa, prod etc. | `string` | `"dev"` | no |
@@ -181,4 +180,8 @@ Currently, the `encrypt at transit` is not supported in terraform. There is an o
 | <a name="output_resource_name_tag"></a> [resource\_name\_tag](#output\_resource\_name\_tag) | n/a |
 | <a name="output_private_ca_arn"></a> [private\_ca\_arn](#output\_private\_ca\_arn) | ARN of Private CA |
 | <a name="output_private_ca_id"></a> [private\_ca\_id](#output\_private\_ca\_id) | ID of the private CA |
+| <a name="output_private_ca_type"></a> [private\_ca\_type](#output\_private\_ca\_type) | Type of the private CA |
+| <a name="output_private_ca_usage_mode"></a> [private\_ca\_usage\_mode](#output\_private\_ca\_usage\_mode) | Usage mode of the private CA |
+| <a name="output_private_ca_key_algorithm"></a> [private\_ca\_key\_algorithm](#output\_private\_ca\_key\_algorithm) | Configuration of the private CA |
+| <a name="output_private_ca_signing_algorithm"></a> [private\_ca\_signing\_algorithm](#output\_private\_ca\_signing\_algorithm) | Configuration of the private CA |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

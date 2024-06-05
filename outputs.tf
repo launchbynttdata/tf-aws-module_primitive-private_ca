@@ -23,3 +23,23 @@ output "private_ca_id" {
   description = "ID of the private CA"
   value       = aws_acmpca_certificate_authority.private_ca.id
 }
+
+output "private_ca_type" {
+  description = "Type of the private CA"
+  value       = aws_acmpca_certificate_authority.private_ca.type
+}
+
+output "private_ca_usage_mode" {
+  description = "Usage mode of the private CA"
+  value       = aws_acmpca_certificate_authority.private_ca.usage_mode
+}
+
+output "private_ca_key_algorithm" {
+  description = "Configuration of the private CA"
+  value       = aws_acmpca_certificate_authority.private_ca.certificate_authority_configuration[0].key_algorithm
+}
+
+output "private_ca_signing_algorithm" {
+  description = "Configuration of the private CA"
+  value       = aws_acmpca_certificate_authority.private_ca.certificate_authority_configuration[0].signing_algorithm
+}

@@ -13,7 +13,22 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+// TestDoesCaExist is the functional entrypoint's implementation function, run
+// via lib.RunSetupTestTeardown (apply -> test -> destroy).
 func TestDoesCaExist(t *testing.T, ctx types.TestContext) {
+	checkCaExists(t, ctx)
+}
+
+// TestComposableCompleteReadOnly is the readonly entrypoint's implementation
+// function. lcaf-component-terratest requires readonly implementation
+// functions to be named with a TestComposable prefix, and it is run via
+// lib.RunNonDestructiveTest against already-deployed infrastructure. It
+// performs the same read-only assertions as the functional suite.
+func TestComposableCompleteReadOnly(t *testing.T, ctx types.TestContext) {
+	checkCaExists(t, ctx)
+}
+
+func checkCaExists(t *testing.T, ctx types.TestContext) {
 	acmpcaClient := acmpca.NewFromConfig(GetAWSConfig(t))
 	pcaArn := terraform.Output(t, ctx.TerratestTerraformOptions(), "private_ca_arn")
 	pcaType := terraform.Output(t, ctx.TerratestTerraformOptions(), "private_ca_type")

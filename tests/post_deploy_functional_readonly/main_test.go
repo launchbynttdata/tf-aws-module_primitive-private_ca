@@ -35,5 +35,5 @@ func TestPrivateCaModule(t *testing.T) {
 		SetTestSpecificFlags(map[string]types.TestFlags{}).
 		Build()
 
-	lib.RunNonDestructiveTest(t, *ctx, testimpl.TestDoesCaExist)
+	lib.RunNonDestructiveTest(t, *ctx, testimpl.TestComposableCompleteReadOnly)
 }

@@ -30,11 +30,11 @@ func TestComposableCompleteReadOnly(t *testing.T, ctx types.TestContext) {
 
 func checkCaExists(t *testing.T, ctx types.TestContext) {
 	acmpcaClient := acmpca.NewFromConfig(GetAWSConfig(t))
-	pcaArn := terraform.Output(t, ctx.TerratestTerraformOptions(), "private_ca_arn")
-	pcaType := terraform.Output(t, ctx.TerratestTerraformOptions(), "private_ca_type")
-	pcaUsageMode := terraform.Output(t, ctx.TerratestTerraformOptions(), "private_ca_usage_mode")
-	pcaKeyAlgorithm := terraform.Output(t, ctx.TerratestTerraformOptions(), "private_ca_key_algorithm")
-	pcaSigningAlgorithm := terraform.Output(t, ctx.TerratestTerraformOptions(), "private_ca_signing_algorithm")
+	pcaArn := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "private_ca_arn")
+	pcaType := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "private_ca_type")
+	pcaUsageMode := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "private_ca_usage_mode")
+	pcaKeyAlgorithm := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "private_ca_key_algorithm")
+	pcaSigningAlgorithm := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "private_ca_signing_algorithm")
 
 	t.Run("TestDoesCaExist", func(t *testing.T) {
 		output, err := acmpcaClient.DescribeCertificateAuthority(context.TODO(), &acmpca.DescribeCertificateAuthorityInput{CertificateAuthorityArn: &pcaArn})
